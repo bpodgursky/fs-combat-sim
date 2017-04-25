@@ -7,9 +7,9 @@ public enum Unit {
   WARLORD_TITAN(3, 5, 4, 3, 5),
   STRIKE_CRUISER(2, 2, 2, 0, 2),
   BATTLE_BARGE(4, 4, 3, 2, 5),
-  ORK_BOYZ(2,2,1,0,2),
-  ASPECT_WARRIORS(2,1,2,0,2),
-  CULTIST(1,2,2,0,2);
+  ORK_BOYZ(2, 2, 1, 0, 2),
+  ASPECT_WARRIORS(2, 1, 2, 0, 2),
+  CULTIST(1, 2, 2, 0, 2);
 
   private final int dice;
   private final int health;

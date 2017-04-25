@@ -1,13 +1,14 @@
 package com.bpodgursky.fs_combat_sim.game_state;
 
-import java.util.Map;
 import java.util.Set;
+
+import com.liveramp.commons.collections.CountingMap;
 
 public class PlayerState {
 
   private final Player player;
 
-  private final Map<Unit, Integer> units;
+  private final CountingMap<Unit> units;
 
   private final int numCities;
 
@@ -17,7 +18,7 @@ public class PlayerState {
 
   private final int numTokens;
 
-  public PlayerState(Player player, int material, int numCities, int numTokens, Map<Unit, Integer> units, Set<Card> cardsInHand) {
+  public PlayerState(Player player, int material, int numCities, int numTokens, CountingMap<Unit> units, Set<Card> cardsInHand) {
 
     if(material < 0){
       throw new IllegalArgumentException();
@@ -27,12 +28,13 @@ public class PlayerState {
       throw new IllegalArgumentException();
     }
 
-    for (Unit unit : units.keySet()) {
+    for (Unit unit : units.get().keySet()) {
       if(!FactionUnits.UNITS.get(player.getFaction()).contains(unit)){
         throw new IllegalArgumentException();
       }
     }
 
+    this.numTokens = numTokens;
     this.material = material;
     this.player = player;
     this.numCities = numCities;
@@ -44,7 +46,7 @@ public class PlayerState {
     return player;
   }
 
-  public Map<Unit, Integer> getUnits() {
+  public CountingMap<Unit> getUnits() {
     return units;
   }
 

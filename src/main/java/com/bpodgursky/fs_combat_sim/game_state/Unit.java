@@ -50,6 +50,14 @@ public class Unit {
       AreaType.WORLD, 2, 1, 2, 0, 2, false, false, 6  //  TODO not sure
   );
 
+  public static final Unit WRAITHGUARD = new Unit(UnitType.WRAITHGUARD,
+      AreaType.WORLD, 2, 4, 2, 1, 3, false, false, 3
+  );
+
+  public static final Unit FALCON = new Unit(UnitType.FALCON,
+      AreaType.WORLD, 3, 4, 3, 2, 4, false, false, 3
+  );
+
   public static final Unit REINFORCEMENT_ASPECT_WARRIOR = new Unit(UnitType.ASPECT_WARRIOR,
       AreaType.WORLD, 2, 1, 2, 0, 2, false, false, Integer.MAX_VALUE
   );
@@ -124,4 +132,7 @@ public class Unit {
     return isReinforcement;
   }
 
+  public int getMaxCount() {
+    return maxCount;
+  }
 }

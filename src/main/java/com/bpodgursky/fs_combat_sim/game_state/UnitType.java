@@ -10,5 +10,7 @@ public enum UnitType {
   BATTLE_BARGE,
   ORK_BOYZ,
   ASPECT_WARRIOR,
-  CULTIST;
+  WRAITHGUARD,
+  CULTIST,
+  FALCON
 }

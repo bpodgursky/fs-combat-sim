@@ -1,10 +1,6 @@
 package com.bpodgursky.fs_combat_sim.game_state;
 
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 
@@ -18,7 +14,9 @@ public class FactionUnits {
 
     UNITS.putAll(Faction.ELDAR, Sets.newHashSet(
         Unit.BASTION,
-        Unit.ASPECT_WARRIOR
+        Unit.ASPECT_WARRIOR,
+        Unit.WRAITHGUARD,
+        Unit.FALCON
     ));
 
     UNITS.putAll(Faction.ORKS, Sets.newHashSet(

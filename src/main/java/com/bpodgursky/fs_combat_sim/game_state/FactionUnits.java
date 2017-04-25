@@ -3,33 +3,46 @@ package com.bpodgursky.fs_combat_sim.game_state;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 
 import com.liveramp.commons.collections.nested_map.TwoNestedMap;
 
 public class FactionUnits {
 
-  public static final Set<Unit> ELDAR = Sets.newHashSet(
-    Unit.ASPECT_WARRIOR
-  );
 
-  public static final Set<Unit> ORKS = Sets.newHashSet(
-      Unit.ORK_BOYZ
-  );
+  public static final Multimap<Faction, Unit> UNITS = HashMultimap.create();
+  static {
 
-  public static final Set<Unit> SPACE_MARINES = Sets.newHashSet(
-      Unit.SCOUT,
-      Unit.SPACE_MARINE,
-      Unit.LAND_RAIDER,
-      Unit.WARLORD_TITAN,
-      Unit.STRIKE_CRUISER,
-      Unit.BATTLE_BARGE
-  );
+    UNITS.putAll(Faction.ELDAR, Sets.newHashSet(
+        Unit.BASTION,
+        Unit.ASPECT_WARRIOR
+    ));
 
-  public static final Set<Unit> CHAOS = Sets.newHashSet(
-      Unit.REINFORCEMENT_CULTIST
-  );
+    UNITS.putAll(Faction.ORKS, Sets.newHashSet(
+        Unit.BASTION,
+        Unit.ORK_BOYZ
+    ));
+
+    UNITS.putAll(Faction.SPACE_MARINES, Sets.<Unit>newHashSet(
+        Unit.BASTION,
+        Unit.SCOUT,
+        Unit.SPACE_MARINE,
+        Unit.LAND_RAIDER,
+        Unit.WARLORD_TITAN,
+        Unit.STRIKE_CRUISER,
+        Unit.BATTLE_BARGE
+    ));
+
+    UNITS.putAll(Faction.CHAOS, Sets.<Unit>newHashSet(
+        Unit.BASTION,
+        Unit.CULTIST
+    ));
+
+  }
+
 
   public static TwoNestedMap<Faction, AreaType, Unit> REINFORCEMENT_UNITS = new TwoNestedMap<Faction, AreaType, Unit>();
   static {

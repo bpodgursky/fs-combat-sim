@@ -1,6 +1,7 @@
 package com.bpodgursky.fs_combat_sim.game_state;
 
 public enum UnitType {
+  BASTION,
   SCOUT,
   SPACE_MARINE,
   LAND_RAIDER,

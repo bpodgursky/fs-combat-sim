@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.bpodgursky</groupId>
-  <artifactId>fs-combat-sim</artifactId>
+  <artifactId>fs_combat_sim</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>fs-combat-sim</name>
+  <name>fs_combat_sim</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

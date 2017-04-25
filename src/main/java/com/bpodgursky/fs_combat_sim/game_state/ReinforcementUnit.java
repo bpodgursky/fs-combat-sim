@@ -4,7 +4,7 @@ public enum ReinforcementUnit {
   SPACE_MARINE(Unit.SCOUT),
   ELDAR(Unit.ASPECT_WARRIOR),
   CHAOS(Unit.CULTIST),
-  ORK(Unit.ORK_BOY);
+  ORK(Unit.ORK_BOYZ);
 
 
   private final Unit baseUnit;

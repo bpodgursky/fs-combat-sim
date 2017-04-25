@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class CombatState {
 
-  Map<Integer, PlayerState> playerStates;
+  PlayerState attackerState;
+  PlayerState defenderState;
 
 }

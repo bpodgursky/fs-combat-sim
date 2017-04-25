@@ -18,6 +18,7 @@ public class PlayerState {
   public PlayerState(int numCities, Map<Unit, Integer> units, Set<Card> cardsInHand) {
     this.numCities = numCities;
     this.cardsInHand = cardsInHand;
+    this.units = units;
   }
 
 }

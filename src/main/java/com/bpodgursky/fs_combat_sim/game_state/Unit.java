@@ -61,6 +61,8 @@ public class Unit {
   private final int morale;
   private final int commandLevel;
   private final int materialCost;
+  private final boolean isForgeTokenRequired;
+  private final boolean isReinforcement;
 
   Unit(UnitType unit, int dice, int health, int morale, int commandLevel, int materialCost,
        boolean forgeTokenRequired,
@@ -71,6 +73,8 @@ public class Unit {
     this.morale = morale;
     this.commandLevel = commandLevel;
     this.materialCost = materialCost;
+    this.isForgeTokenRequired = forgeTokenRequired;
+    this.isReinforcement = isReinforcement;
   }
 
   public int getDice() {
@@ -95,6 +99,14 @@ public class Unit {
 
   public UnitType getUnitType() {
     return unit;
+  }
+
+  public boolean isForgeTokenRequired(){
+    return isForgeTokenRequired;
+  }
+
+  public boolean isReinforcement(){
+    return isReinforcement;
   }
 
 }

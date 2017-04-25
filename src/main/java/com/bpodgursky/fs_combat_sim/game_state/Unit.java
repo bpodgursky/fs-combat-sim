@@ -38,7 +38,7 @@ public class Unit {
       2, 2, 1, 0, 2, false, false
   );
 
-  public static final Unit ORK_BOYZ_REINFORCEMENT = new Unit(UnitType.ORK_BOYZ,
+  public static final Unit REINFORCEMENT_ORK_BOYZ = new Unit(UnitType.ORK_BOYZ,
       2, 2, 1, 0, 2, false, false
   );
 
@@ -46,11 +46,15 @@ public class Unit {
       2,1,2,0,2, false, false
   );
 
-  public static final Unit ASPECT_WARRIOR_REINFORCEMENT = new Unit(UnitType.ASPECT_WARRIOR,
+  public static final Unit REINFORCEMENT_ASPECT_WARRIOR = new Unit(UnitType.ASPECT_WARRIOR,
       2,1,2,0,2, false, false
   );
 
-  public static final Unit CULTIST_REINFORCEMENT = new Unit(UnitType.CULTIST,
+  public static final Unit CULTIST = new Unit(UnitType.CULTIST,
+      1,2,2,0,2, false, false
+  );
+
+  public static final Unit REINFORCEMENT_CULTIST = new Unit(UnitType.CULTIST,
       1,2,2,0,2, false, true
   );
 

@@ -19,5 +19,19 @@
       <artifactId>guava</artifactId>
       <version>21.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.liveramp</groupId>
+      <artifactId>commons</artifactId>
+      <version>1.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>liveramp-repositories</id>
+      <name>Liveramp Repositories</name>
+      <url>http://repository.liveramp.com/artifactory/liveramp-repositories</url>
+    </repository>
+  </repositories>
+
 </project>

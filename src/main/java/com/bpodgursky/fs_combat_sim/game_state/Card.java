@@ -30,6 +30,10 @@ public enum Card {
     this.commandLevel = commandLevel;
     this.cost = cost;
   }
+//  PlayerChoices getPlayerChoices(PlayerRole playerRole, CombatState combatState);
+//
+//  CombatState transformCombat(F madePlayerChoices, PlayerRole playerRole, CombatState currentState);
+
 
   public String getName() {
     return name;

@@ -6,10 +6,11 @@ import com.google.common.collect.Sets;
 
 import com.liveramp.commons.collections.nested_map.TwoNestedMap;
 
-public class FactionUnits {
+public class Factions {
 
 
   public static final Multimap<Faction, Unit> UNITS = HashMultimap.create();
+
   static {
 
     UNITS.putAll(Faction.ELDAR, Sets.newHashSet(
@@ -41,8 +42,46 @@ public class FactionUnits {
 
   }
 
+  public static final Multimap<Faction, Card> STARTING_CARDS = HashMultimap.create();
+
+  static {
+
+    STARTING_CARDS.putAll(Faction.SPACE_MARINES, Sets.newHashSet(
+        Card.AMBUSH,
+        Card.BLESSED_POWER_ARMOR,
+        Card.FAITH_IN_THE_EMPEROR,
+        Card.FURY_OF_THE_ULTRAMAR,
+        Card.RECONNAISANCE
+    ));
+
+    STARTING_CARDS.putAll(Faction.ELDAR, Sets.newHashSet(
+        Card.HIT_AND_RUN,
+        Card.HOWLING_BANSHEES,
+        Card.STRIKING_SCORPIONS,
+        Card.RANGER_SUPPORT,
+        Card.COMMAND_OF_THE_AUTARCH
+    ));
+
+  }
+
+  public static final Multimap<Faction, Card> CARDS = HashMultimap.create(STARTING_CARDS);
+
+  static {
+
+    CARDS.putAll(Faction.SPACE_MARINES, Sets.newHashSet(
+        Card.HOLD_THE_LINE,
+        Card.GLORY_AND_DEATH,
+        Card.VETERAN_SCOUTS,
+        Card.DROP_POD_ASSAULT,
+
+        Card.SHOW_NO_FEAR
+    ));
+
+  }
+
 
   public static TwoNestedMap<Faction, AreaType, Unit> REINFORCEMENT_UNITS = new TwoNestedMap<Faction, AreaType, Unit>();
+
   static {
 
     REINFORCEMENT_UNITS.put(Faction.ELDAR, AreaType.WORLD, Unit.REINFORCEMENT_ASPECT_WARRIOR);

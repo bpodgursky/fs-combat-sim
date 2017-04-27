@@ -40,7 +40,7 @@ public class PlayerState {
     Map<Unit, Long> unitsMap = units.get();
     for (Unit unit : unitsMap.keySet()) {
 
-      if(!FactionUnits.UNITS.get(player.getFaction()).contains(unit)){
+      if(!Factions.UNITS.get(player.getFaction()).contains(unit)){
         throw new IllegalArgumentException("Unit for wrong faction");
       }
 
@@ -60,6 +60,18 @@ public class PlayerState {
         throw new IllegalArgumentException("InsufficientCardboardException: "+entry);
       }
 
+    }
+
+    for (Card card : cardsInHand) {
+
+      if(!Factions.CARDS.get(player.getFaction()).contains(card)){
+        throw new IllegalArgumentException("Cannot purchase Xenos technology");
+      }
+
+    }
+
+    if(cardsInHand.size() != 5){
+      throw new IllegalArgumentException("Must have only 5 cards in hand");
     }
 
     this.numUnresolvedTokens = numUnresolvedTokens;

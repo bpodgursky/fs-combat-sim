@@ -1,5 +1,6 @@
 package com.bpodgursky.fs_combat_sim.game_state.purchase;
 
+import com.bpodgursky.fs_combat_sim.game_state.Card;
 import com.bpodgursky.fs_combat_sim.game_state.Token;
 import com.bpodgursky.fs_combat_sim.game_state.Unit;
 
@@ -17,6 +18,10 @@ public class Purchases {
 
   public static final Purchase unit(Unit unit, boolean useCacheToken) {
     return new UnitPurchase(unit, useCacheToken);
+  }
+
+  public static final Purchase card(Card toBuy, Card toReplace){
+    return new CardPurchase(toBuy, toReplace);
   }
 
 }

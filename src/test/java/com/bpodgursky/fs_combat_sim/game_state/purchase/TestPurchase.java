@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bpodgursky.fs_combat_sim.game_state.Card;
 import com.bpodgursky.fs_combat_sim.game_state.Faction;
+import com.bpodgursky.fs_combat_sim.game_state.Factions;
 import com.bpodgursky.fs_combat_sim.game_state.Player;
 import com.bpodgursky.fs_combat_sim.game_state.PlayerState;
 import com.bpodgursky.fs_combat_sim.game_state.Token;
@@ -14,10 +15,11 @@ import org.junit.Test;
 
 import com.liveramp.commons.collections.CountingMap;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class TestUnitPurchase {
+public class TestPurchase {
 
   private static final Purchase PURCHASE_ASPECT_WARRIOR = Purchases.unit(Unit.ASPECT_WARRIOR);
   private static final Purchase PURCHASE_WRAITHGUARD = Purchases.unit(Unit.WRAITHGUARD);
@@ -26,7 +28,7 @@ public class TestUnitPurchase {
   @Test
   public void testRaw() {
 
-    PlayerState state = new PlayerState(new Player(Faction.ELDAR), 6, 0, 3, new CountingMap<Unit>(), new CountingMap<Token>(), Sets.<Card>newHashSet());
+    PlayerState state = new PlayerState(new Player(Faction.ELDAR), 6, 0, 3, new CountingMap<Unit>(), new CountingMap<Token>(), Sets.newHashSet(Factions.STARTING_CARDS.get(Faction.ELDAR)));
 
     state = PURCHASE_ASPECT_WARRIOR.apply(state);
     assertEquals(4, state.getMaterial());
@@ -57,8 +59,26 @@ public class TestUnitPurchase {
   }
 
   @Test
+  public void testCardPurchase() {
+    PlayerState state = new PlayerState(new Player(Faction.SPACE_MARINES), 10, 0, 3, new CountingMap<Unit>(), new CountingMap<Token>(), Sets.newHashSet(Factions.STARTING_CARDS.get(Faction.SPACE_MARINES)));
+
+    assertFailedSequence(state, Lists.newArrayList(
+        Purchases.card(Card.SHOW_NO_FEAR, Card.BLESSED_POWER_ARMOR)
+    ));
+
+    PlayerState hodl = state.applyAll(Lists.newArrayList(
+        Purchases.CITY,
+        Purchases.CITY,
+        Purchases.card(Card.SHOW_NO_FEAR, Card.BLESSED_POWER_ARMOR)
+    ));
+
+    assertTrue(hodl.getCardsInHand().contains(Card.SHOW_NO_FEAR));
+    assertTrue(hodl.getMaterial() == 0);
+  }
+
+    @Test
   public void testSequence() {
-    PlayerState state = new PlayerState(new Player(Faction.ELDAR), 6, 0, 3, new CountingMap<Unit>(), new CountingMap<Token>(), Sets.<Card>newHashSet());
+    PlayerState state = new PlayerState(new Player(Faction.ELDAR), 6, 0, 3, new CountingMap<Unit>(), new CountingMap<Token>(), Sets.newHashSet(Factions.STARTING_CARDS.get(Faction.ELDAR)));
 
     assertFailedSequence(state, Lists.newArrayList(
         PURCHASE_FALCON
